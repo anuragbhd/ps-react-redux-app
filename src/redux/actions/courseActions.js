@@ -7,7 +7,7 @@ export function createCourse(course) {
 
 export function loadCourses() {
   return function(dispatch) {
-    courseAPI
+    return courseAPI
       .getCourses()
       .then(courses => {
         dispatch({ type: types.LOAD_COURSES_SUCCESS, courses });
