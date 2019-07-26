@@ -20,8 +20,11 @@ export function saveCourse(course) {
       .saveCourse(course)
       .then(savedCourse => {
         course.id
-          ? dispatch({ type: types.UPDATE_COURSE_SUCCESS, savedCourse })
-          : dispatch({ type: types.CREATE_COURSE_SUCCESS, savedCourse });
+          ? dispatch({ type: types.UPDATE_COURSE_SUCCESS, course: savedCourse })
+          : dispatch({
+              type: types.CREATE_COURSE_SUCCESS,
+              course: savedCourse
+            });
       })
       .catch(error => {
         throw error;
