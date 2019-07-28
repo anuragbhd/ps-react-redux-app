@@ -36,3 +36,10 @@ export function saveCourse(course) {
       });
   };
 }
+
+export function deleteCourse(course) {
+  return function(dispatch) {
+    dispatch({ type: types.DELETE_COURSE_OPTIMISTIC, course });
+    return courseAPI.deleteCourse(course.id);
+  };
+}
